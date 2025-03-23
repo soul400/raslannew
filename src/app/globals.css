@@ -1,0 +1,156 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+@layer base {
+  :root {
+    --radius: 0.5rem;
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+    --primary: 222.2 47.4% 11.2%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 222.2 84% 4.9%;
+    --chart-1: 12 76% 61%;
+    --chart-2: 173 58% 39%;
+    --chart-3: 197 37% 24%;
+    --chart-4: 43 74% 66%;
+    --chart-5: 27 87% 67%;
+    /* رمضان كريم - ألوان مخصصة */
+    --gold: 45 100% 50%;
+    --gold-light: 45 100% 70%;
+    --gold-dark: 45 100% 40%;
+    --dark-bg: 240 20% 10%;
+    --dark-card: 240 15% 15%;
+    --correct-answer: 120 100% 35%;
+    --wrong-answer: 0 100% 50%;
+  }
+  .dark {
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+    /* تخصيص الألوان للمسابقة الرمضانية - خلفية داكنة وحدود ذهبية */
+    --background: 240 20% 10%; /* خلفية داكنة */
+    --foreground: 0 0% 95%; /* نص فاتح */
+    --card: 240 15% 15%; /* بطاقات بلون داكن */
+    --card-foreground: 0 0% 95%;
+    --popover: 240 15% 15%;
+    --popover-foreground: 0 0% 95%;
+    --primary: 45 100% 50%; /* اللون الذهبي كلون أساسي */
+    --primary-foreground: 240 20% 10%;
+    --secondary: 240 15% 20%;
+    --secondary-foreground: 0 0% 95%;
+    --muted: 240 15% 20%;
+    --muted-foreground: 240 5% 75%;
+    --accent: 45 100% 50%; /* اللون الذهبي كلون ثانوي */
+    --accent-foreground: 240 20% 10%;
+    --destructive: 0 100% 50%;
+    --destructive-foreground: 0 0% 95%;
+    --border: 45 100% 50%; /* حدود ذهبية */
+    --input: 240 15% 20%;
+    --ring: 45 100% 50%; /* حلقة ذهبية للتركيز */
+    --chart-1: 220 70% 50%;
+    --chart-2: 160 60% 45%;
+    --chart-3: 30 80% 55%;
+    --chart-4: 280 65% 60%;
+    --chart-5: 340 75% 55%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground dark;
+  }
+}
+
+/* أنماط مخصصة للمسابقة الرمضانية */
+@layer components {
+  .number-grid {
+    @apply grid gap-2;
+  }
+  
+  .number-box {
+    @apply bg-card text-card-foreground border-2 border-primary rounded-md flex items-center justify-center font-bold cursor-pointer hover:bg-secondary transition-all duration-200;
+  }
+  
+  .number-box-disabled {
+    @apply bg-black text-transparent border-0 cursor-not-allowed;
+  }
+  
+  .participant-box {
+    @apply bg-card border-2 border-primary rounded-md p-3 flex flex-col;
+  }
+  
+  .participant-name {
+    @apply text-lg font-bold text-foreground mb-2;
+  }
+  
+  .score-box {
+    @apply bg-secondary border border-primary rounded-md p-2 flex justify-between items-center;
+  }
+  
+  .score-value {
+    @apply text-xl font-bold text-primary;
+  }
+  
+  .score-controls {
+    @apply flex gap-2;
+  }
+  
+  .score-button {
+    @apply bg-primary text-primary-foreground rounded-full w-6 h-6 flex items-center justify-center font-bold hover:bg-gold-light transition-all duration-200;
+  }
+  
+  .question-card {
+    @apply bg-card border-4 border-primary rounded-lg p-6 flex flex-col items-center;
+  }
+  
+  .timer-circle {
+    @apply bg-secondary border-4 border-primary rounded-full w-16 h-16 flex items-center justify-center text-2xl font-bold text-primary;
+  }
+  
+  .answer-button {
+    @apply bg-primary text-primary-foreground border-2 border-gold-dark rounded-md py-2 px-4 font-bold hover:bg-gold-light transition-all duration-200;
+  }
+  
+  .correct-button {
+    @apply bg-correct-answer text-white border-2 border-correct-answer rounded-md py-2 px-4 font-bold;
+  }
+  
+  .wrong-button {
+    @apply bg-wrong-answer text-white border-2 border-wrong-answer rounded-md py-2 px-4 font-bold;
+  }
+}
